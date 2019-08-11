@@ -1,0 +1,11 @@
+dateTime <- paste(Data$Date, Data$Time)
+dateTime <- setNames(dateTime, "DateTime")
+Data <- cbind(dateTime, Data)
+
+Data$dateTime <- as.POSIXct(dateTime)
+plot(Data$Global_active_power~Data$dateTime, type="l", ylab="Global Active Power (kilowatts)", xlab="")
+
+
+dev.copy(png,"plot2.png", width=480, height=480)
+
+dev.off()
